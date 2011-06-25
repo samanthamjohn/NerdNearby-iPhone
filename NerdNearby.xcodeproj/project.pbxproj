@@ -11,6 +11,9 @@
 		471B331313B6A28B009703EE /* OCHamcrest-iPhone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 471B331213B6A28B009703EE /* OCHamcrest-iPhone.framework */; };
 		471B331B13B6A2FA009703EE /* OCMock-iPhone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 471B331A13B6A2FA009703EE /* OCMock-iPhone.framework */; };
 		471B331C13B6A4E0009703EE /* NerdNearbyAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 472F1ABE13B698150097246F /* NerdNearbyAppDelegate.m */; };
+		471B332113B6A855009703EE /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 471B332013B6A855009703EE /* FeedViewController.m */; };
+		471B332213B6A855009703EE /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 471B332013B6A855009703EE /* FeedViewController.m */; };
+		471B332513B6AAD6009703EE /* FeedViewControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 471B332413B6AAD6009703EE /* FeedViewControllerSpec.m */; };
 		472F1AAF13B698150097246F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 472F1AAE13B698150097246F /* UIKit.framework */; };
 		472F1AB113B698150097246F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 472F1AB013B698150097246F /* Foundation.framework */; };
 		472F1AB313B698150097246F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 472F1AB213B698150097246F /* CoreGraphics.framework */; };
@@ -32,6 +35,9 @@
 		471B331013B6A270009703EE /* Cedar-iPhone.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "Cedar-iPhone.framework"; sourceTree = "<group>"; };
 		471B331213B6A28B009703EE /* OCHamcrest-iPhone.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "OCHamcrest-iPhone.framework"; sourceTree = "<group>"; };
 		471B331A13B6A2FA009703EE /* OCMock-iPhone.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "OCMock-iPhone.framework"; sourceTree = "<group>"; };
+		471B331F13B6A855009703EE /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
+		471B332013B6A855009703EE /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
+		471B332413B6AAD6009703EE /* FeedViewControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewControllerSpec.m; sourceTree = "<group>"; };
 		472F1AAA13B698150097246F /* NerdNearby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NerdNearby.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		472F1AAE13B698150097246F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		472F1AB013B698150097246F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -81,6 +87,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		471B331D13B6A81A009703EE /* App */ = {
+			isa = PBXGroup;
+			children = (
+				471B331E13B6A82F009703EE /* Controllers */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		471B331E13B6A82F009703EE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				471B331F13B6A855009703EE /* FeedViewController.h */,
+				471B332013B6A855009703EE /* FeedViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		471B332313B6AAB8009703EE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				471B332413B6AAD6009703EE /* FeedViewControllerSpec.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		472F1A9F13B698150097246F = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +147,7 @@
 		472F1AB413B698150097246F /* NerdNearby */ = {
 			isa = PBXGroup;
 			children = (
+				471B331D13B6A81A009703EE /* App */,
 				472F1ABD13B698150097246F /* NerdNearbyAppDelegate.h */,
 				472F1ABE13B698150097246F /* NerdNearbyAppDelegate.m */,
 				472F1AC013B698150097246F /* MainWindow.xib */,
@@ -162,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				472F1D0513B6A0D30097246F /* NerdNearbyAppDelegateSpec.m */,
+				471B332313B6AAB8009703EE /* Controllers */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -254,6 +287,7 @@
 			files = (
 				472F1ABC13B698150097246F /* main.m in Sources */,
 				472F1ABF13B698150097246F /* NerdNearbyAppDelegate.m in Sources */,
+				471B332113B6A855009703EE /* FeedViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +299,8 @@
 				472F1CF913B69F000097246F /* SpecsAppDelegate.m in Sources */,
 				472F1D0613B6A0D30097246F /* NerdNearbyAppDelegateSpec.m in Sources */,
 				471B331C13B6A4E0009703EE /* NerdNearbyAppDelegate.m in Sources */,
+				471B332213B6A855009703EE /* FeedViewController.m in Sources */,
+				471B332513B6AAD6009703EE /* FeedViewControllerSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

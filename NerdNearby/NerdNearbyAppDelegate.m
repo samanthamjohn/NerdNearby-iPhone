@@ -1,4 +1,5 @@
 #import "NerdNearbyAppDelegate.h"
+#import "FeedViewController.h"
 
 @implementation NerdNearbyAppDelegate
 
@@ -6,7 +7,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    [[self window] setRootViewController:[[[UINavigationController alloc] init] autorelease]];
+    UINavigationController *navController = [[[UINavigationController alloc] init] autorelease];
+
+    [navController pushViewController:[[[FeedViewController alloc] init] autorelease] animated:NO];
+    [[self window] setRootViewController:navController];
     [[self window] makeKeyAndVisible];
     return YES;
 }
