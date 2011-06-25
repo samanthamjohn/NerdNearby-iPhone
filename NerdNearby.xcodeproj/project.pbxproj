@@ -1,0 +1,265 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		472F1AAF13B698150097246F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 472F1AAE13B698150097246F /* UIKit.framework */; };
+		472F1AB113B698150097246F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 472F1AB013B698150097246F /* Foundation.framework */; };
+		472F1AB313B698150097246F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 472F1AB213B698150097246F /* CoreGraphics.framework */; };
+		472F1AB913B698150097246F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 472F1AB713B698150097246F /* InfoPlist.strings */; };
+		472F1ABC13B698150097246F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 472F1ABB13B698150097246F /* main.m */; };
+		472F1ABF13B698150097246F /* NerdNearbyAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 472F1ABE13B698150097246F /* NerdNearbyAppDelegate.m */; };
+		472F1AC213B698150097246F /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 472F1AC013B698150097246F /* MainWindow.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		472F1AAA13B698150097246F /* NerdNearby.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NerdNearby.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		472F1AAE13B698150097246F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		472F1AB013B698150097246F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		472F1AB213B698150097246F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		472F1AB613B698150097246F /* NerdNearby-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NerdNearby-Info.plist"; sourceTree = "<group>"; };
+		472F1AB813B698150097246F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		472F1ABA13B698150097246F /* NerdNearby-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NerdNearby-Prefix.pch"; sourceTree = "<group>"; };
+		472F1ABB13B698150097246F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		472F1ABD13B698150097246F /* NerdNearbyAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NerdNearbyAppDelegate.h; sourceTree = "<group>"; };
+		472F1ABE13B698150097246F /* NerdNearbyAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NerdNearbyAppDelegate.m; sourceTree = "<group>"; };
+		472F1AC113B698150097246F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		472F1AA713B698150097246F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				472F1AAF13B698150097246F /* UIKit.framework in Frameworks */,
+				472F1AB113B698150097246F /* Foundation.framework in Frameworks */,
+				472F1AB313B698150097246F /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		472F1A9F13B698150097246F = {
+			isa = PBXGroup;
+			children = (
+				472F1AB413B698150097246F /* NerdNearby */,
+				472F1AAD13B698150097246F /* Frameworks */,
+				472F1AAB13B698150097246F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		472F1AAB13B698150097246F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				472F1AAA13B698150097246F /* NerdNearby.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		472F1AAD13B698150097246F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				472F1AAE13B698150097246F /* UIKit.framework */,
+				472F1AB013B698150097246F /* Foundation.framework */,
+				472F1AB213B698150097246F /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		472F1AB413B698150097246F /* NerdNearby */ = {
+			isa = PBXGroup;
+			children = (
+				472F1ABD13B698150097246F /* NerdNearbyAppDelegate.h */,
+				472F1ABE13B698150097246F /* NerdNearbyAppDelegate.m */,
+				472F1AC013B698150097246F /* MainWindow.xib */,
+				472F1AB513B698150097246F /* Supporting Files */,
+			);
+			path = NerdNearby;
+			sourceTree = "<group>";
+		};
+		472F1AB513B698150097246F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				472F1AB613B698150097246F /* NerdNearby-Info.plist */,
+				472F1AB713B698150097246F /* InfoPlist.strings */,
+				472F1ABA13B698150097246F /* NerdNearby-Prefix.pch */,
+				472F1ABB13B698150097246F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		472F1AA913B698150097246F /* NerdNearby */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 472F1AC513B698150097246F /* Build configuration list for PBXNativeTarget "NerdNearby" */;
+			buildPhases = (
+				472F1AA613B698150097246F /* Sources */,
+				472F1AA713B698150097246F /* Frameworks */,
+				472F1AA813B698150097246F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NerdNearby;
+			productName = NerdNearby;
+			productReference = 472F1AAA13B698150097246F /* NerdNearby.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		472F1AA113B698150097246F /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 472F1AA413B698150097246F /* Build configuration list for PBXProject "NerdNearby" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 472F1A9F13B698150097246F;
+			productRefGroup = 472F1AAB13B698150097246F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				472F1AA913B698150097246F /* NerdNearby */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		472F1AA813B698150097246F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				472F1AB913B698150097246F /* InfoPlist.strings in Resources */,
+				472F1AC213B698150097246F /* MainWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		472F1AA613B698150097246F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				472F1ABC13B698150097246F /* main.m in Sources */,
+				472F1ABF13B698150097246F /* NerdNearbyAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		472F1AB713B698150097246F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				472F1AB813B698150097246F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		472F1AC013B698150097246F /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				472F1AC113B698150097246F /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		472F1AC313B698150097246F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		472F1AC413B698150097246F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		472F1AC613B698150097246F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NerdNearby/NerdNearby-Prefix.pch";
+				INFOPLIST_FILE = "NerdNearby/NerdNearby-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		472F1AC713B698150097246F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NerdNearby/NerdNearby-Prefix.pch";
+				INFOPLIST_FILE = "NerdNearby/NerdNearby-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		472F1AA413B698150097246F /* Build configuration list for PBXProject "NerdNearby" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				472F1AC313B698150097246F /* Debug */,
+				472F1AC413B698150097246F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		472F1AC513B698150097246F /* Build configuration list for PBXNativeTarget "NerdNearby" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				472F1AC613B698150097246F /* Debug */,
+				472F1AC713B698150097246F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 472F1AA113B698150097246F /* Project object */;
+}
