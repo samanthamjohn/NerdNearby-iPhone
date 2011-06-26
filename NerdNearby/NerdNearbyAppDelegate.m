@@ -1,5 +1,6 @@
 #import "NerdNearbyAppDelegate.h"
 #import "FeedViewController.h"
+#import "UIColor+NerdNearby.h"
 
 @implementation NerdNearbyAppDelegate
 
@@ -8,6 +9,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     UINavigationController *navController = [[[UINavigationController alloc] init] autorelease];
+    [[navController navigationBar] setTintColor:[UIColor nerdGreenColor]];
+
 
     [navController pushViewController:[[[FeedViewController alloc] init] autorelease] animated:NO];
     [[self window] setRootViewController:navController];
