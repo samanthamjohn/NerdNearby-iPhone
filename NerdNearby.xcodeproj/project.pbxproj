@@ -37,6 +37,8 @@
 		D4097E8E13B7D8200094ECC8 /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = D4097E8C13B7D8200094ECC8 /* App.m */; };
 		D4097E9013B7D8360094ECC8 /* AppSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D4097E8F13B7D8360094ECC8 /* AppSpec.m */; };
 		D4DCDF6713B7DDCD00EC9052 /* NerdAgentSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DCDF6613B7DDCD00EC9052 /* NerdAgentSpec.m */; };
+		D4DCDFC313B9635C00EC9052 /* YAJLiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DCDFC213B9635C00EC9052 /* YAJLiOS.framework */; };
+		D4DCDFC413B9635C00EC9052 /* YAJLiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DCDFC213B9635C00EC9052 /* YAJLiOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,7 @@
 		D4097E8C13B7D8200094ECC8 /* App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = App.m; sourceTree = "<group>"; };
 		D4097E8F13B7D8360094ECC8 /* AppSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSpec.m; sourceTree = "<group>"; };
 		D4DCDF6613B7DDCD00EC9052 /* NerdAgentSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NerdAgentSpec.m; sourceTree = "<group>"; };
+		D4DCDFC213B9635C00EC9052 /* YAJLiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YAJLiOS.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +87,7 @@
 				472F1AAF13B698150097246F /* UIKit.framework in Frameworks */,
 				472F1AB113B698150097246F /* Foundation.framework in Frameworks */,
 				472F1AB313B698150097246F /* CoreGraphics.framework in Frameworks */,
+				D4DCDFC313B9635C00EC9052 /* YAJLiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +101,7 @@
 				471B331113B6A270009703EE /* Cedar-iPhone.framework in Frameworks */,
 				471B331313B6A28B009703EE /* OCHamcrest-iPhone.framework in Frameworks */,
 				471B331B13B6A2FA009703EE /* OCMock-iPhone.framework in Frameworks */,
+				D4DCDFC413B9635C00EC9052 /* YAJLiOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +140,7 @@
 		472F1A9F13B698150097246F = {
 			isa = PBXGroup;
 			children = (
+				D4DCDFB413B95FBA00EC9052 /* Externals */,
 				472F1AB413B698150097246F /* NerdNearby */,
 				472F1CEE13B69F000097246F /* Specs */,
 				472F1AAD13B698150097246F /* Frameworks */,
@@ -245,6 +251,14 @@
 				D4DCDF6613B7DDCD00EC9052 /* NerdAgentSpec.m */,
 			);
 			path = Agents;
+			sourceTree = "<group>";
+		};
+		D4DCDFB413B95FBA00EC9052 /* Externals */ = {
+			isa = PBXGroup;
+			children = (
+				D4DCDFC213B9635C00EC9052 /* YAJLiOS.framework */,
+			);
+			path = Externals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -435,6 +449,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Externals\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NerdNearby/NerdNearby-Prefix.pch";
@@ -453,6 +471,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Externals\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NerdNearby/NerdNearby-Prefix.pch";
 				INFOPLIST_FILE = "NerdNearby/NerdNearby-Info.plist";
@@ -477,6 +499,7 @@
 					"\"$(SRCROOT)/../cedar/build/Debug-iphoneuniversal\"",
 					"\"$(SRCROOT)/../OCHamcrest/Source/build/Debug-iphoneuniversal\"",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Externals\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -507,6 +530,7 @@
 					"\"$(SRCROOT)/../cedar/build/Debug-iphoneuniversal\"",
 					"\"$(SRCROOT)/../OCHamcrest/Source/build/Debug-iphoneuniversal\"",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Externals\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Specs/Specs-Prefix.pch";
