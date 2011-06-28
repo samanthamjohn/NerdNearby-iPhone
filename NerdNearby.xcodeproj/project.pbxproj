@@ -31,6 +31,12 @@
 		472F1D0613B6A0D30097246F /* NerdNearbyAppDelegateSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 472F1D0513B6A0D30097246F /* NerdNearbyAppDelegateSpec.m */; };
 		47C0436213B6AEBC00F71554 /* UIColor+NerdNearby.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C0436113B6AEBC00F71554 /* UIColor+NerdNearby.m */; };
 		47C0436313B6AEBC00F71554 /* UIColor+NerdNearby.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C0436113B6AEBC00F71554 /* UIColor+NerdNearby.m */; };
+		D4097E8913B7D79E0094ECC8 /* NerdAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = D4097E8813B7D79E0094ECC8 /* NerdAgent.m */; };
+		D4097E8A13B7D79E0094ECC8 /* NerdAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = D4097E8813B7D79E0094ECC8 /* NerdAgent.m */; };
+		D4097E8D13B7D8200094ECC8 /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = D4097E8C13B7D8200094ECC8 /* App.m */; };
+		D4097E8E13B7D8200094ECC8 /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = D4097E8C13B7D8200094ECC8 /* App.m */; };
+		D4097E9013B7D8360094ECC8 /* AppSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D4097E8F13B7D8360094ECC8 /* AppSpec.m */; };
+		D4DCDF6713B7DDCD00EC9052 /* NerdAgentSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DCDF6613B7DDCD00EC9052 /* NerdAgentSpec.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +68,12 @@
 		472F1D0513B6A0D30097246F /* NerdNearbyAppDelegateSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NerdNearbyAppDelegateSpec.m; sourceTree = "<group>"; };
 		47C0436013B6AEBC00F71554 /* UIColor+NerdNearby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+NerdNearby.h"; sourceTree = "<group>"; };
 		47C0436113B6AEBC00F71554 /* UIColor+NerdNearby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+NerdNearby.m"; sourceTree = "<group>"; };
+		D4097E8713B7D79E0094ECC8 /* NerdAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NerdAgent.h; sourceTree = "<group>"; };
+		D4097E8813B7D79E0094ECC8 /* NerdAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NerdAgent.m; sourceTree = "<group>"; };
+		D4097E8B13B7D8200094ECC8 /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
+		D4097E8C13B7D8200094ECC8 /* App.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = App.m; sourceTree = "<group>"; };
+		D4097E8F13B7D8360094ECC8 /* AppSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSpec.m; sourceTree = "<group>"; };
+		D4DCDF6613B7DDCD00EC9052 /* NerdAgentSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NerdAgentSpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +106,11 @@
 		471B331D13B6A81A009703EE /* App */ = {
 			isa = PBXGroup;
 			children = (
+				D4097E8513B7D7600094ECC8 /* Agents */,
 				471B331E13B6A82F009703EE /* Controllers */,
 				47C0435E13B6AE8900F71554 /* Extensions */,
+				D4097E8B13B7D8200094ECC8 /* App.h */,
+				D4097E8C13B7D8200094ECC8 /* App.m */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -198,8 +213,10 @@
 		472F1D0313B6A07C0097246F /* App */ = {
 			isa = PBXGroup;
 			children = (
-				472F1D0513B6A0D30097246F /* NerdNearbyAppDelegateSpec.m */,
+				D4DCDF6413B7DD9200EC9052 /* Agents */,
 				471B332313B6AAB8009703EE /* Controllers */,
+				D4097E8F13B7D8360094ECC8 /* AppSpec.m */,
+				472F1D0513B6A0D30097246F /* NerdNearbyAppDelegateSpec.m */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -211,6 +228,23 @@
 				47C0436113B6AEBC00F71554 /* UIColor+NerdNearby.m */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D4097E8513B7D7600094ECC8 /* Agents */ = {
+			isa = PBXGroup;
+			children = (
+				D4097E8713B7D79E0094ECC8 /* NerdAgent.h */,
+				D4097E8813B7D79E0094ECC8 /* NerdAgent.m */,
+			);
+			path = Agents;
+			sourceTree = "<group>";
+		};
+		D4DCDF6413B7DD9200EC9052 /* Agents */ = {
+			isa = PBXGroup;
+			children = (
+				D4DCDF6613B7DDCD00EC9052 /* NerdAgentSpec.m */,
+			);
+			path = Agents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,6 +337,8 @@
 				472F1ABF13B698150097246F /* NerdNearbyAppDelegate.m in Sources */,
 				471B332113B6A855009703EE /* FeedViewController.m in Sources */,
 				47C0436213B6AEBC00F71554 /* UIColor+NerdNearby.m in Sources */,
+				D4097E8913B7D79E0094ECC8 /* NerdAgent.m in Sources */,
+				D4097E8D13B7D8200094ECC8 /* App.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +353,10 @@
 				471B332213B6A855009703EE /* FeedViewController.m in Sources */,
 				471B332513B6AAD6009703EE /* FeedViewControllerSpec.m in Sources */,
 				47C0436313B6AEBC00F71554 /* UIColor+NerdNearby.m in Sources */,
+				D4097E8A13B7D79E0094ECC8 /* NerdAgent.m in Sources */,
+				D4097E8E13B7D8200094ECC8 /* App.m in Sources */,
+				D4097E9013B7D8360094ECC8 /* AppSpec.m in Sources */,
+				D4DCDF6713B7DDCD00EC9052 /* NerdAgentSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +439,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NerdNearby/NerdNearby-Prefix.pch";
 				INFOPLIST_FILE = "NerdNearby/NerdNearby-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Externals\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -412,6 +456,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NerdNearby/NerdNearby-Prefix.pch";
 				INFOPLIST_FILE = "NerdNearby/NerdNearby-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Externals\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
@@ -434,6 +482,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Specs/Specs-Prefix.pch";
 				INFOPLIST_FILE = "Specs/Specs-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Externals\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lstdc++",
@@ -459,6 +511,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Specs/Specs-Prefix.pch";
 				INFOPLIST_FILE = "Specs/Specs-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Externals\"",
+				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lstdc++",
