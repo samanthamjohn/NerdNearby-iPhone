@@ -9,16 +9,52 @@ describe(@"NerdAgent", ^{
         agent = [[[NerdAgent alloc] init] autorelease];
     });
 
-    describe(@"fetchItemsWithDelegate:", ^{
+    describe(@"fetch", ^{
         xit(@"should initiate a connection with itself as the connection delegate", ^{});
-        xit(@"should set its delegate to the delegate provided", ^{});
     });
 
-    describe(@"connection:didReceiveResponse:", ^{});
-    describe(@"connection:didReceiveData:", ^{});
-    describe(@"connection:didFailWithError:", ^{});
-    describe(@"connectionDidFinishLoading:", ^{});
+    describe(@"connection:didReceiveResponse:", ^{
+        it(@"should initialize the data storage", ^{
+            [agent connection:nil didReceiveResponse:nil];
+            assertThat([agent data], instanceOf([NSMutableData class]));
+        });
+    });
 
+    describe(@"connection:didReceiveData: after a response has been received", ^{
+        it(@"should append the data to its internal data storage", ^{
+            [agent connection:nil didReceiveResponse:nil];
+            NSData *data = [NSData dataWithBytes:"yeah" length:5];
+            [agent connection:nil didReceiveData:data];
+            assertThatInt([[agent data] length], equalToInt(5));
+        });
+    });
+
+    describe(@"connection:didFailWithError:", ^{});
+
+    describe(@"connectionDidFinishLoading:", ^{
+
+        __block id mockNotificationCenter;
+
+        beforeEach(^{
+            mockNotificationCenter = [OCMockObject partialMockForObject:[NSNotificationCenter defaultCenter]];
+            [[mockNotificationCenter expect] postNotificationName:@"ItemsReceived" object:agent];
+            NSData *data = [NSData dataWithBytes:"[\"yeah\"]" length:7];
+            [agent setData:[data mutableCopy]];
+            [agent connectionDidFinishLoading:nil];
+        });
+
+        it(@"should turn the data into a JSON array", ^{
+            assertThat([agent JSONArray], equalTo([NSArray arrayWithObject:@"yeah"]));
+        });
+
+        it(@"should clear the data object", ^{
+            assertThat([agent data], is(nilValue()));
+        });
+
+        it(@"should send notification that data has been received", ^{
+            [mockNotificationCenter verify];
+        });
+    });
 });
 
 SPEC_END

@@ -6,6 +6,7 @@
     self = [super init];
     if (self) {
         [self setTitle:@"Nerd Nearby"];
+
     }
     return self;
 }
