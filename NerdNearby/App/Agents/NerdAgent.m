@@ -6,7 +6,7 @@
 @synthesize data, JSONArray;
 
 - (void)fetch {
-    NSURL *URL = [NSURL URLWithString:@"http://nerdnearby.com?lat=40.731714&lng=-73.991431"];
+    NSURL *URL = [NSURL URLWithString:@"http://nerdnearby.com/feed_items.json?lat=40.731714&lng=-73.991431"];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     [NSURLConnection connectionWithRequest:request delegate:self];
 }

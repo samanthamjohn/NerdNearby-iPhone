@@ -4,4 +4,6 @@
 
 }
 
+- (void)itemsReceived:(NSNotification *)notification;
+
 @end
