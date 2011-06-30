@@ -16,11 +16,71 @@ describe(@"FeedViewController", ^{
         assertThat([controller title], equalTo(@"Nerd Nearby"));
     });
 
-    describe(@"itemsReceived", ^{
-        xit(@"should do something with the items", ^{});
+    describe(@"itemsReceived:", ^{
+        it(@"should reload the table view", ^{
+            id mockTableView = [OCMockObject niceMockForClass:[UITableView class]];
+            [[mockTableView expect] reloadData];
+            [controller setView:mockTableView];
+
+            [controller itemsReceived:nil];
+
+            [mockTableView verify];
+        });
+    });
+
+    describe(@"loadView", ^{
+
+        __block UITableView *tableView;
+
+        beforeEach(^{
+            [controller loadView];
+            tableView = (UITableView *)[controller view];
+        });
+
+        it(@"should have a UITableView as its view", ^{
+            assertThat(tableView, instanceOf([UITableView class]));
+        });
+
+        it(@"should set the controller as the UITableView's data source", ^{
+            assertThat([tableView dataSource], sameInstance(controller));
+        });
+    });
+
+    describe(@"tableView:numberOfRowsInSection:", ^{
+        it(@"should return the number of items in the agent's json array", ^{
+            id mockAgent = [OCMockObject partialMockForObject:[[App sharedInstance] nerdAgent]];
+            NSArray *mockArray = [NSArray arrayWithObject:@"hai!"];
+            [[[mockAgent stub] andReturn:mockArray] JSONArray];
+
+            assertThatInt([controller tableView:nil numberOfRowsInSection:0], equalToInt(1));
+        });
+    });
+
+    describe(@"cell returned from tableView:cellForRowAtIndexPath:", ^{
+
+        __block UITableViewCell *cell;
+
+        beforeEach(^{
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+            cell = [controller tableView:nil cellForRowAtIndexPath:indexPath];
+        });
+
+        it(@"should be a UITableViewCell", ^{
+            assertThat(cell, instanceOf([UITableViewCell class]));
+        });
+
+        it(@"should have a reuseIdentifier of NerdCellIdentifier", ^{
+            assertThat([cell reuseIdentifier], equalTo(@"NerdCellIdentifier"));
+        });
+
     });
 
     describe(@"viewDidLoad", ^{
+
+        beforeEach(^{
+            [controller loadView];
+        });
+
         it(@"should register for the 'ItemsReceived' notification", ^{
             id mockNotificationCenter = [OCMockObject partialMockForObject:[NSNotificationCenter defaultCenter]];
             [[mockNotificationCenter expect] addObserver:controller selector:@selector(itemsReceived:) name:@"ItemsReceived" object:nil];
