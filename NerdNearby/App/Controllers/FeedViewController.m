@@ -16,12 +16,6 @@
 #pragma mark - Notification handling
 
 - (void)itemsReceived:(NSNotification *)notification {
-    NerdAgent *agent = [[App sharedInstance] nerdAgent];
-    NSMutableString * result = [[NSMutableString alloc] init];
-    for (NSObject * obj in [agent JSONArray]) {
-        [result appendString:[obj description]];
-    }
-    [[[[UIAlertView alloc] initWithTitle:@"OH YEAH" message:result delegate:nil cancelButtonTitle:@"byebye" otherButtonTitles:nil] autorelease] show];
 }
 
 #pragma mark - View lifecycle
