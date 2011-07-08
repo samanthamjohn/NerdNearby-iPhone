@@ -48,7 +48,7 @@ SIGNER="iPhone Developer: Sean Moon"
 # Your testflightapp.com API token (see https://testflightapp.com/account/)
 TESTFLIGHT_API_TOKEN=9929d28d64505fa7dfff87304b354dd8_ODc4MjI
 # Your testflightapp.com Team Token (see https://testflightapp.com/dashboard/team/edit/)
-TESTFLIGHT_TEAM_TOKEN=d88d9866568f7e224fadde3e892bcded_MTQ1Nzg
+TESTFLIGHT_TEAM_TOKEN=1578e79adc01d462797c50644c132358_MTk4NjI
 # List of testflightapp.com distribution lists to send the build to (and send notifications)
 TESTFLIGHT_GROUPS="Everybody"
 
