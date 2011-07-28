@@ -1,6 +1,7 @@
 #import "FeedViewController.h"
 #import "App.h"
 #import "NerdAgent.h"
+#import "UIImageView+WebCache.h"
 
 @implementation FeedViewController
 
@@ -20,28 +21,49 @@
 
 }
 
+#pragma mark - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 320.f + 20.f;
+}
+
 #pragma mark - UITableView data source
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     static NSString *NerdIdentifier = @"NerdCellIdentifier";
+
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NerdIdentifier];
 
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:NerdIdentifier] autorelease];
-    }
+    UIImageView *imageView;
+    UILabel *captionView;
 
-    /* TODO: remove this untested code (pending design)... */
     NSInteger index = [indexPath row];
     NerdAgent *agent = [[App sharedInstance] nerdAgent];
     NSDictionary *item = [[agent JSONArray] objectAtIndex:index];
 
-    if ([[item objectForKey:@"text"] isKindOfClass:[NSString class]]) {
-        cell.textLabel.text = [item objectForKey:@"text"];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"NerdCellIdentifier"] autorelease];
+        CGRect imageViewFrame = CGRectMake(0.f, 20.f, 320.f, 320.f);
+        imageView = [[[UIImageView alloc] initWithFrame:imageViewFrame] autorelease];
+        imageView.tag = kImageViewTag;
+        [cell.contentView addSubview:imageView];
+
+        CGRect captionViewFrame = CGRectMake(0.f, 0.f, 320.f, 20.f);
+        captionView = [[[UILabel alloc] initWithFrame:captionViewFrame] autorelease];
+        captionView.tag = kCaptionViewTag;
+        [cell.contentView addSubview:captionView];
+    } else {
+        imageView = (UIImageView *)[cell.contentView viewWithTag:kImageViewTag];
+        captionView = (UILabel *)[cell.contentView viewWithTag:kCaptionViewTag];
     }
 
-    cell.detailTextLabel.text = [item objectForKey:@"feed_item_type"];
-    /* END TODO */
+    NSURL *imageURL = [NSURL URLWithString:[item objectForKey:@"image_tag"]];
+    [imageView setImageWithURL:imageURL placeholderImage:nil];
+
+    if ([[item objectForKey:@"text"] isKindOfClass:[NSString class]]) {
+        [captionView setText:[item objectForKey:@"text"]];
+    }
 
     return cell;
 }
@@ -56,6 +78,7 @@
 - (void)loadView {
     UITableView *tableView = [[[UITableView alloc] init] autorelease];
     tableView.dataSource = self;
+    tableView.delegate = self;
     self.view = tableView;
 }
 

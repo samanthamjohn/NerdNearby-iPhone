@@ -1,6 +1,11 @@
 #import <UIKit/UIKit.h>
 
-@interface FeedViewController : UIViewController<UITableViewDataSource> {
+enum CellViewTag {
+    kImageViewTag = 2047,
+    kCaptionViewTag
+    };
+
+@interface FeedViewController : UIViewController<UITableViewDataSource, UITableViewDelegate> {
 
 }
 

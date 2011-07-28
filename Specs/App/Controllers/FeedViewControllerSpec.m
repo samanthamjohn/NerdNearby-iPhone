@@ -44,6 +44,10 @@ describe(@"FeedViewController", ^{
         it(@"should set the controller as the UITableView's data source", ^{
             assertThat([tableView dataSource], sameInstance(controller));
         });
+
+        it(@"should set the controller as the UITableView's delegate", ^{
+            assertThat([tableView delegate], sameInstance(controller));
+        });
     });
 
     describe(@"tableView:numberOfRowsInSection:", ^{
@@ -71,6 +75,14 @@ describe(@"FeedViewController", ^{
 
         it(@"should have a reuseIdentifier of NerdCellIdentifier", ^{
             assertThat([cell reuseIdentifier], equalTo(@"NerdCellIdentifier"));
+        });
+
+        it(@"should have an image view", ^{
+            assertThat([[cell contentView] viewWithTag:kImageViewTag], instanceOf([UIImageView class]));
+        });
+
+        it(@"should have a caption view", ^{
+            assertThat([[cell contentView] viewWithTag:kCaptionViewTag], instanceOf([UILabel class]));
         });
 
     });
