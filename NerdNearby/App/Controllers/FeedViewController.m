@@ -94,6 +94,7 @@
     UITableView *tableView = [[[UITableView alloc] init] autorelease];
     tableView.dataSource = self;
     tableView.delegate = self;
+    tableView.allowsSelection = NO;
     self.view = tableView;
 }
 

@@ -41,6 +41,10 @@ describe(@"FeedViewController", ^{
             assertThat(tableView, instanceOf([UITableView class]));
         });
 
+        it(@"should disable selecting rows in the table view", ^{
+            assertThatBool(tableView.allowsSelection, equalToBool(NO));
+        });
+
         it(@"should set the controller as the UITableView's data source", ^{
             assertThat([tableView dataSource], sameInstance(controller));
         });
