@@ -3,7 +3,20 @@
 #import "NerdAgent.h"
 #import "UIImageView+WebCache.h"
 
+@interface FeedViewController (PrivateInterface)
+
+- (void)startLocationUpdates;
+
+@end
+
 @implementation FeedViewController
+
+@synthesize locationManager = locationManager_;
+
+- (void)dealloc {
+    [self setLocationManager:nil];
+    [super dealloc];
+}
 
 - (id)init {
     self = [super init];
@@ -64,7 +77,7 @@
     if ([[item objectForKey:@"text"] isKindOfClass:[NSString class]]) {
         [captionView setText:[item objectForKey:@"text"]];
     } else {
-        [captionView setText:@""];    
+        [captionView setText:@""];
     }
 
     return cell;
@@ -86,12 +99,37 @@
 
 
 - (void)viewDidLoad {
+    [self startLocationUpdates];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemsReceived:) name:@"ItemsReceived" object:nil];
-    [[[App sharedInstance] nerdAgent] fetch];
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+#pragma mark - CLLocationManagerDelegate methods
+
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation {
+    if (oldLocation == nil) {
+        [[[App sharedInstance] nerdAgent] fetchWithLatitude:newLocation.coordinate.latitude longitude:newLocation.coordinate.longitude];
+    }
+}
+
+
+#pragma mark -
+#pragma mark - Private methods
+
+- (void)startLocationUpdates {
+    if (nil == [self locationManager]) {
+        [self setLocationManager:[[[CLLocationManager alloc] init] autorelease]];
+    }
+
+    [[self locationManager] setDelegate:self];
+    [[self locationManager] startUpdatingLocation];
 }
 
 @end

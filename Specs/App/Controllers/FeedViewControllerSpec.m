@@ -102,13 +102,32 @@ describe(@"FeedViewController", ^{
             [mockNotificationCenter verify];
         });
 
-        it(@"should trigger an update", ^{
-            id mockAgent = [OCMockObject partialMockForObject:[[App sharedInstance] nerdAgent]];
-            [[mockAgent expect] fetch];
+        describe(@"the location manager", ^{
+            beforeEach(^{
+                [controller viewDidLoad];
+            });
 
-            [controller viewDidLoad];
+            it(@"should be created", ^{
+                assertThat([controller locationManager], instanceOf([CLLocationManager class]));
+            });
 
-            [mockAgent verify];
+            it(@"should set the delegate to be the controller", ^{
+                assertThat([[controller locationManager] delegate], sameInstance(controller));
+            });
+        });
+    });
+
+    describe(@"locationManager:didUpdateToLocation:fromLocation:", ^{
+        describe(@"when the fromLocation is nil", ^{
+            it(@"should trigger an update with the location", ^{
+                id mockAgent = [OCMockObject partialMockForObject:[[App sharedInstance] nerdAgent]];
+                CLLocation *newLocation = [[[CLLocation alloc] initWithLatitude:10.f longitude:20.f] autorelease];
+
+                [[mockAgent expect] fetchWithLatitude:10.f longitude:20.f];
+                [controller locationManager:nil didUpdateToLocation:newLocation fromLocation:nil];
+
+                [mockAgent verify];
+            });
         });
     });
 });
