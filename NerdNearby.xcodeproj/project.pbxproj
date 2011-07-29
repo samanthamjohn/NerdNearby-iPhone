@@ -43,6 +43,8 @@
 		4791F1CF13CD210200F268DE /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4791F19713CD210200F268DE /* UIImageView+WebCache.m */; };
 		47C0436213B6AEBC00F71554 /* UIColor+NerdNearby.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C0436113B6AEBC00F71554 /* UIColor+NerdNearby.m */; };
 		47C0436313B6AEBC00F71554 /* UIColor+NerdNearby.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C0436113B6AEBC00F71554 /* UIColor+NerdNearby.m */; };
+		47CB2A2D13E232D90011BC81 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47CB2A2C13E232D90011BC81 /* CoreLocation.framework */; };
+		47CB2A2E13E232F50011BC81 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47CB2A2C13E232D90011BC81 /* CoreLocation.framework */; };
 		D4097E8913B7D79E0094ECC8 /* NerdAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = D4097E8813B7D79E0094ECC8 /* NerdAgent.m */; };
 		D4097E8A13B7D79E0094ECC8 /* NerdAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = D4097E8813B7D79E0094ECC8 /* NerdAgent.m */; };
 		D4097E8D13B7D8200094ECC8 /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = D4097E8C13B7D8200094ECC8 /* App.m */; };
@@ -96,6 +98,7 @@
 		4791F19713CD210200F268DE /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		47C0436013B6AEBC00F71554 /* UIColor+NerdNearby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+NerdNearby.h"; sourceTree = "<group>"; };
 		47C0436113B6AEBC00F71554 /* UIColor+NerdNearby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+NerdNearby.m"; sourceTree = "<group>"; };
+		47CB2A2C13E232D90011BC81 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		D4097E8713B7D79E0094ECC8 /* NerdAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NerdAgent.h; sourceTree = "<group>"; };
 		D4097E8813B7D79E0094ECC8 /* NerdAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NerdAgent.m; sourceTree = "<group>"; };
 		D4097E8B13B7D8200094ECC8 /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
@@ -112,6 +115,7 @@
 			files = (
 				472F1AAF13B698150097246F /* UIKit.framework in Frameworks */,
 				472F1AB113B698150097246F /* Foundation.framework in Frameworks */,
+				47CB2A2E13E232F50011BC81 /* CoreLocation.framework in Frameworks */,
 				472F1AB313B698150097246F /* CoreGraphics.framework in Frameworks */,
 				D4DCDFC313B9635C00EC9052 /* YAJLiOS.framework in Frameworks */,
 			);
@@ -121,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47CB2A2D13E232D90011BC81 /* CoreLocation.framework in Frameworks */,
 				472F1CEB13B69F000097246F /* UIKit.framework in Frameworks */,
 				472F1CEC13B69F000097246F /* Foundation.framework in Frameworks */,
 				472F1CED13B69F000097246F /* CoreGraphics.framework in Frameworks */,
@@ -187,6 +192,7 @@
 		472F1AAD13B698150097246F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				47CB2A2C13E232D90011BC81 /* CoreLocation.framework */,
 				471B331A13B6A2FA009703EE /* OCMock-iPhone.framework */,
 				471B331213B6A28B009703EE /* OCHamcrest-iPhone.framework */,
 				471B331013B6A270009703EE /* Cedar-iPhone.framework */,

@@ -10,7 +10,18 @@ describe(@"NerdAgent", ^{
     });
 
     describe(@"fetch", ^{
-        xit(@"should initiate a connection with itself as the connection delegate", ^{});
+        it(@"should call fetchWithLocation with a default location", ^{
+            id mockAgent = [OCMockObject partialMockForObject:agent];
+            [[mockAgent expect] fetchWithLatitude:DEFAULT_LATITUDE longitude:DEFAULT_LONGITUDE];
+
+            [agent fetch];
+
+            [mockAgent verify];
+        });
+    });
+
+    describe(@"fetchWithLocation:", ^{
+        xit(@"should initiate a request for JSON with itself as the connection delegate", ^{});
     });
 
     describe(@"connection:didReceiveResponse:", ^{

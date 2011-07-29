@@ -6,7 +6,13 @@
 @synthesize data, JSONArray;
 
 - (void)fetch {
-    NSURL *URL = [NSURL URLWithString:@"http://nerdnearby.com/feed_items.json?lat=40.731714&lng=-73.991431"];
+    [self fetchWithLatitude:DEFAULT_LATITUDE longitude:DEFAULT_LONGITUDE];
+}
+
+- (void)fetchWithLatitude:(CLLocationDegrees)latitude longitude:(CLLocationDegrees)longitude {
+    NSString *URLString = [NSString stringWithFormat:@"http://nerdnearby.com/feed_items.json?lat=%f&lng=%f", latitude, longitude];
+
+    NSURL *URL = [NSURL URLWithString:URLString];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     [NSURLConnection connectionWithRequest:request delegate:self];
 }
