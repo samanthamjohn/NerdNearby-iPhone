@@ -63,6 +63,8 @@
 
     if ([[item objectForKey:@"text"] isKindOfClass:[NSString class]]) {
         [captionView setText:[item objectForKey:@"text"]];
+    } else {
+        [captionView setText:@""];    
     }
 
     return cell;
