@@ -36,7 +36,7 @@ TARGET_SDK=iphoneos
 CONFIGURATION=Release
 
 # Name of .mobileprovision file in the PROFILES_PATH directory (see below)
-PROVISIONING="9B077968-E43A-4FF1-BA62-549A0B8F3010.mobileprovision"
+PROVISIONING="65933A3C-A3A5-45CD-A570-B0BCE0DEFDF0.mobileprovision"
 
 # Code signing identity, as it appears in Xcode's Organizer
 #    (e.g. "iPhone Developer: John Doe")
