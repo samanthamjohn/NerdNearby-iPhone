@@ -3,7 +3,8 @@
 
 enum CellViewTag {
     kImageViewTag = 2047,
-    kCaptionViewTag
+    kCaptionViewTag,
+    kTitleViewTag
     };
 
 @interface FeedViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, CLLocationManagerDelegate> {

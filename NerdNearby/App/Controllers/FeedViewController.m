@@ -59,6 +59,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     UIImageView *imageView;
     UILabel *captionView;
+    UILabel *titleView;
 
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
@@ -66,6 +67,10 @@
         imageView = [[[UIImageView alloc] init] autorelease];
         imageView.tag = kImageViewTag;
         [cell.contentView addSubview:imageView];
+
+        titleView = [[[UILabel alloc] init] autorelease];
+        titleView.tag = kTitleViewTag;
+        [cell.contentView addSubview:titleView];
 
         captionView = [[[UILabel alloc] init] autorelease];
         captionView.tag = kCaptionViewTag;
@@ -76,30 +81,37 @@
     } else {
         imageView = (UIImageView *)[cell.contentView viewWithTag:kImageViewTag];
         captionView = (UILabel *)[cell.contentView viewWithTag:kCaptionViewTag];
+        titleView = (UILabel *)[cell.contentView viewWithTag:kTitleViewTag];
     }
 
     CGRect imageViewFrame;
     CGRect captionViewFrame;
+    CGRect titleViewFrame;
 
     if (tweet) {
-        imageViewFrame = CGRectMake(0.f, 0.f, 48.f, 48.f);
-        captionViewFrame = CGRectMake(0.f, 48.f + 12.f, 320.f, 240.f);
+        imageViewFrame = CGRectMake(10.f, 0.f, 48.f, 48.f);
+        captionViewFrame = CGRectMake(10.f, 48.f + 12.f, 320.f - 20.f, 240.f);
+        titleViewFrame = CGRectMake(48.f + 10.f + 10.f, 0.f, 320.f - 40.f - 10.f - 10.f - 10.f, 48.f);
     } else {
         imageViewFrame = CGRectMake(0.f, 20.f, 320.f, 320.f);
-        captionViewFrame = CGRectMake(0.f, 0.f, 320.f, 20.f);
+        captionViewFrame = CGRectMake(10.f, 0.f, 320.f - (10.f * 2.f), 20.f);
+        titleViewFrame = CGRectMake(0.f, 0.f, 0.f, 0.f);
     }
 
     imageView.frame = imageViewFrame;
     captionView.frame = captionViewFrame;
+    titleView.frame = titleViewFrame;
 
     NSURL *imageURL = [NSURL URLWithString:[item objectForKey:@"image_tag"]];
     [imageView setImageWithURL:imageURL placeholderImage:nil];
 
     NSString *captionText = [item objectForKey:@"text"];
     UIFont *font = [UIFont fontWithName:@"Helvetica" size:18.f];
-    CGSize captionSize = [captionText sizeWithFont:font constrainedToSize:CGSizeMake(320.f, 240.f) lineBreakMode:UILineBreakModeWordWrap];
+    CGSize captionSize = [captionText sizeWithFont:font constrainedToSize:CGSizeMake(300.f, 240.f) lineBreakMode:UILineBreakModeWordWrap];
     captionViewFrame.size = captionSize;
     [captionView setText:captionText];
+
+    [titleView setText:[item objectForKey:@"user"]];
 
     return cell;
 }
