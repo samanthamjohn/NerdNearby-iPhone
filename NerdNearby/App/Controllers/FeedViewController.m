@@ -37,48 +37,69 @@
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 320.f + 20.f;
+    return 320.f + 30.f;
 }
 
 #pragma mark - UITableView data source
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    static NSString *NerdIdentifier = @"NerdCellIdentifier";
-
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NerdIdentifier];
-
-    UIImageView *imageView;
-    UILabel *captionView;
-
     NSInteger index = [indexPath row];
     NerdAgent *agent = [[App sharedInstance] nerdAgent];
     NSDictionary *item = [[agent JSONArray] objectAtIndex:index];
+    NSString *cellIdentifier;
+    BOOL tweet = NO;
+
+    if ([[item objectForKey:@"feed_item_type"] isEqualToString:@"tweet"]) {
+        tweet = YES;
+        cellIdentifier = @"TweetCellIdentifier";
+    } else {
+        cellIdentifier = @"NerdCellIdentifier";
+    }
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    UIImageView *imageView;
+    UILabel *captionView;
 
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"NerdCellIdentifier"] autorelease];
-        CGRect imageViewFrame = CGRectMake(0.f, 20.f, 320.f, 320.f);
-        imageView = [[[UIImageView alloc] initWithFrame:imageViewFrame] autorelease];
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] autorelease];
+
+        imageView = [[[UIImageView alloc] init] autorelease];
         imageView.tag = kImageViewTag;
         [cell.contentView addSubview:imageView];
 
-        CGRect captionViewFrame = CGRectMake(0.f, 0.f, 320.f, 20.f);
-        captionView = [[[UILabel alloc] initWithFrame:captionViewFrame] autorelease];
+        captionView = [[[UILabel alloc] init] autorelease];
         captionView.tag = kCaptionViewTag;
+        captionView.lineBreakMode = UILineBreakModeWordWrap;
+        captionView.numberOfLines = 0;
+        captionView.font = [UIFont fontWithName:@"Helvetica" size:18.f];
         [cell.contentView addSubview:captionView];
     } else {
         imageView = (UIImageView *)[cell.contentView viewWithTag:kImageViewTag];
         captionView = (UILabel *)[cell.contentView viewWithTag:kCaptionViewTag];
     }
 
+    CGRect imageViewFrame;
+    CGRect captionViewFrame;
+
+    if (tweet) {
+        imageViewFrame = CGRectMake(0.f, 0.f, 48.f, 48.f);
+        captionViewFrame = CGRectMake(0.f, 48.f + 12.f, 320.f, 240.f);
+    } else {
+        imageViewFrame = CGRectMake(0.f, 20.f, 320.f, 320.f);
+        captionViewFrame = CGRectMake(0.f, 0.f, 320.f, 20.f);
+    }
+
+    imageView.frame = imageViewFrame;
+    captionView.frame = captionViewFrame;
+
     NSURL *imageURL = [NSURL URLWithString:[item objectForKey:@"image_tag"]];
     [imageView setImageWithURL:imageURL placeholderImage:nil];
 
-    if ([[item objectForKey:@"text"] isKindOfClass:[NSString class]]) {
-        [captionView setText:[item objectForKey:@"text"]];
-    } else {
-        [captionView setText:@""];
-    }
+    NSString *captionText = [item objectForKey:@"text"];
+    UIFont *font = [UIFont fontWithName:@"Helvetica" size:18.f];
+    CGSize captionSize = [captionText sizeWithFont:font constrainedToSize:CGSizeMake(320.f, 240.f) lineBreakMode:UILineBreakModeWordWrap];
+    captionViewFrame.size = captionSize;
+    [captionView setText:captionText];
 
     return cell;
 }
