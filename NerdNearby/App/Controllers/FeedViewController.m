@@ -31,26 +31,13 @@
 - (void)itemsReceived:(NSNotification *)notification {
     UITableView *tableView = (UITableView *)[self view];
     [tableView reloadData];
+
 }
 
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSInteger index = [indexPath row];
-    NerdAgent *agent = [[App sharedInstance] nerdAgent];
-    NSDictionary *item = [[agent JSONArray] objectAtIndex:index];
-    
-    NSString *captionText = [item objectForKey:@"text"];
-    UIFont *font = [UIFont fontWithName:@"Helvetica" size:18.f];
-    CGSize captionSize = [captionText sizeWithFont:font constrainedToSize:CGSizeMake(300.f, 240.f) lineBreakMode:UILineBreakModeWordWrap];
-    
-    NSLog(@"================> %f", captionSize.height);
-    if ([[item objectForKey:@"feed_item_type"] isEqualToString:@"tweet"]) {
-        return 100.f;
-    } else {
-        return 320.f + 30.f;
-    }
+    return 320.f + 30.f;
 }
 
 #pragma mark - UITableView data source
@@ -101,17 +88,14 @@
     CGRect captionViewFrame;
     CGRect titleViewFrame;
 
-    float height;
     if (tweet) {
         imageViewFrame = CGRectMake(10.f, 0.f, 48.f, 48.f);
         captionViewFrame = CGRectMake(10.f, 48.f + 12.f, 320.f - 20.f, 240.f);
         titleViewFrame = CGRectMake(48.f + 10.f + 10.f, 0.f, 320.f - 40.f - 10.f - 10.f - 10.f, 48.f);
-        height = 50.f;
     } else {
         imageViewFrame = CGRectMake(0.f, 20.f, 320.f, 320.f);
         captionViewFrame = CGRectMake(10.f, 0.f, 320.f - (10.f * 2.f), 20.f);
         titleViewFrame = CGRectMake(0.f, 0.f, 0.f, 0.f);
-        height = 320.f + 30.f;
     }
 
     imageView.frame = imageViewFrame;
