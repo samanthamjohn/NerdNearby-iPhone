@@ -2,6 +2,7 @@
 #import "App.h"
 #import "NerdAgent.h"
 #import "UIImageView+WebCache.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface FeedViewController (PrivateInterface)
 
@@ -57,6 +58,8 @@
     }
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    cell.layer.shouldRasterize = YES;
+    cell.layer.rasterizationScale = [UIScreen mainScreen].scale;
     UIImageView *imageView;
     UILabel *captionView;
     UILabel *titleView;
