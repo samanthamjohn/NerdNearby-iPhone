@@ -38,7 +38,18 @@
 #pragma mark - UITableViewDelegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 320.f + 30.f;
+
+    NSInteger index = [indexPath row];
+    NerdAgent *agent = [[App sharedInstance] nerdAgent];
+    NSDictionary *item = [[agent JSONArray] objectAtIndex:index];
+    if ([[item objectForKey:@"feed_item_type"] isEqualToString:@"tweet"]) {
+        NSString *captionText = [item objectForKey:@"text"];
+        UIFont *font = [UIFont fontWithName:@"Helvetica" size:18.f];
+        CGSize captionSize = [captionText sizeWithFont:font constrainedToSize:CGSizeMake(300.f, 240.f) lineBreakMode:UILineBreakModeWordWrap];
+        return 48.f + 48.f + captionSize.height;
+    } else {
+        return 320.f + 30.f;
+    }
 }
 
 #pragma mark - UITableView data source
@@ -47,14 +58,11 @@
     NSInteger index = [indexPath row];
     NerdAgent *agent = [[App sharedInstance] nerdAgent];
     NSDictionary *item = [[agent JSONArray] objectAtIndex:index];
-    NSString *cellIdentifier;
+    NSString *cellIdentifier = @"NerdCellIdentifier";
     BOOL tweet = NO;
 
     if ([[item objectForKey:@"feed_item_type"] isEqualToString:@"tweet"]) {
         tweet = YES;
-        cellIdentifier = @"TweetCellIdentifier";
-    } else {
-        cellIdentifier = @"NerdCellIdentifier";
     }
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
@@ -91,9 +99,14 @@
     CGRect captionViewFrame;
     CGRect titleViewFrame;
 
+    NSString *captionText = [item objectForKey:@"text"];
+    UIFont *font = [UIFont fontWithName:@"Helvetica" size:18.f];
+    CGSize captionSize = [captionText sizeWithFont:font constrainedToSize:CGSizeMake(300.f, 240.f) lineBreakMode:UILineBreakModeWordWrap];
+
     if (tweet) {
         imageViewFrame = CGRectMake(10.f, 0.f, 48.f, 48.f);
-        captionViewFrame = CGRectMake(10.f, 48.f + 12.f, 320.f - 20.f, 240.f);
+        captionViewFrame.origin = CGPointMake(10.f, 48.f + 12.f);
+        captionViewFrame.size = captionSize;
         titleViewFrame = CGRectMake(48.f + 10.f + 10.f, 0.f, 320.f - 40.f - 10.f - 10.f - 10.f, 48.f);
     } else {
         imageViewFrame = CGRectMake(0.f, 20.f, 320.f, 320.f);
@@ -107,13 +120,7 @@
 
     NSURL *imageURL = [NSURL URLWithString:[item objectForKey:@"image_tag"]];
     [imageView setImageWithURL:imageURL placeholderImage:nil];
-
-    NSString *captionText = [item objectForKey:@"text"];
-    UIFont *font = [UIFont fontWithName:@"Helvetica" size:18.f];
-    CGSize captionSize = [captionText sizeWithFont:font constrainedToSize:CGSizeMake(300.f, 240.f) lineBreakMode:UILineBreakModeWordWrap];
-    captionViewFrame.size = captionSize;
     [captionView setText:captionText];
-
     [titleView setText:[item objectForKey:@"user"]];
 
     return cell;
@@ -122,7 +129,6 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [[[[App sharedInstance] nerdAgent] JSONArray] count];
 }
-
 
 #pragma mark - View lifecycle
 
@@ -134,11 +140,9 @@
     self.view = tableView;
 }
 
-
 - (void)viewDidLoad {
     [self startLocationUpdates];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemsReceived:) name:@"ItemsReceived" object:nil];
-
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -147,7 +151,6 @@
 
 #pragma mark - CLLocationManagerDelegate methods
 
-
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation {
@@ -155,7 +158,6 @@
         [[[App sharedInstance] nerdAgent] fetchWithLatitude:newLocation.coordinate.latitude longitude:newLocation.coordinate.longitude];
     }
 }
-
 
 #pragma mark -
 #pragma mark - Private methods
