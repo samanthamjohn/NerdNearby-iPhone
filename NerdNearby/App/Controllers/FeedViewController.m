@@ -134,7 +134,6 @@
 
 - (void)viewDidLoad {
     [self startLocationUpdates];
-
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemsReceived:) name:@"ItemsReceived" object:nil];
 
 }
@@ -144,6 +143,7 @@
 }
 
 #pragma mark - CLLocationManagerDelegate methods
+
 
 - (void)locationManager:(CLLocationManager *)manager
     didUpdateToLocation:(CLLocation *)newLocation

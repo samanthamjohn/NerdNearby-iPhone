@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47138BFE13FDE4A4000249A2 /* CLLocationManager+NerdNearby.m in Sources */ = {isa = PBXBuildFile; fileRef = 47138BFD13FDE4A4000249A2 /* CLLocationManager+NerdNearby.m */; };
+		47138BFF13FDE4A4000249A2 /* CLLocationManager+NerdNearby.m in Sources */ = {isa = PBXBuildFile; fileRef = 47138BFD13FDE4A4000249A2 /* CLLocationManager+NerdNearby.m */; };
 		471B331113B6A270009703EE /* Cedar-iPhone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 471B331013B6A270009703EE /* Cedar-iPhone.framework */; };
 		471B331313B6A28B009703EE /* OCHamcrest-iPhone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 471B331213B6A28B009703EE /* OCHamcrest-iPhone.framework */; };
 		471B331B13B6A2FA009703EE /* OCMock-iPhone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 471B331A13B6A2FA009703EE /* OCMock-iPhone.framework */; };
@@ -56,6 +58,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		47138BFC13FDE4A4000249A2 /* CLLocationManager+NerdNearby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLLocationManager+NerdNearby.h"; sourceTree = "<group>"; };
+		47138BFD13FDE4A4000249A2 /* CLLocationManager+NerdNearby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLLocationManager+NerdNearby.m"; sourceTree = "<group>"; };
 		471B331013B6A270009703EE /* Cedar-iPhone.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "Cedar-iPhone.framework"; sourceTree = "<group>"; };
 		471B331213B6A28B009703EE /* OCHamcrest-iPhone.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "OCHamcrest-iPhone.framework"; sourceTree = "<group>"; };
 		471B331A13B6A2FA009703EE /* OCMock-iPhone.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = "OCMock-iPhone.framework"; sourceTree = "<group>"; };
@@ -286,6 +290,8 @@
 			children = (
 				47C0436013B6AEBC00F71554 /* UIColor+NerdNearby.h */,
 				47C0436113B6AEBC00F71554 /* UIColor+NerdNearby.m */,
+				47138BFC13FDE4A4000249A2 /* CLLocationManager+NerdNearby.h */,
+				47138BFD13FDE4A4000249A2 /* CLLocationManager+NerdNearby.m */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -415,6 +421,7 @@
 				4791F1CA13CD210200F268DE /* SDWebImageDownloader.m in Sources */,
 				4791F1CC13CD210200F268DE /* SDWebImageManager.m in Sources */,
 				4791F1CE13CD210200F268DE /* UIImageView+WebCache.m in Sources */,
+				47138BFE13FDE4A4000249A2 /* CLLocationManager+NerdNearby.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +444,7 @@
 				4791F1CB13CD210200F268DE /* SDWebImageDownloader.m in Sources */,
 				4791F1CD13CD210200F268DE /* SDWebImageManager.m in Sources */,
 				4791F1CF13CD210200F268DE /* UIImageView+WebCache.m in Sources */,
+				47138BFF13FDE4A4000249A2 /* CLLocationManager+NerdNearby.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
