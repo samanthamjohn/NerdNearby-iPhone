@@ -50,13 +50,20 @@
     
     CGSize captionSize = [captionText sizeWithFont:font constrainedToSize:CGSizeMake(300.f, 240.f) lineBreakMode:UILineBreakModeWordWrap];
     CGSize nameSize = [nameText sizeWithFont:font constrainedToSize:CGSizeMake(300.f, 240.f) lineBreakMode:UILineBreakModeWordWrap];
+    float titleHeight;
+    if (nameSize.height > 36.f) {
+        titleHeight = nameSize.height;
+    } else {
+        titleHeight = 36.f;
+    }
+
     
     if ([[item objectForKey:@"feed_item_type"] isEqualToString:@"tweet"]) {
         return 10.f + 48.f + captionSize.height + 10.f;
     } else if ([[item objectForKey:@"feed_item_type"] isEqualToString:@"foursquare"]) {
-        return 10.f + captionSize.height + 26.f + 10.f;
+        return 10.f + captionSize.height + titleHeight + 10.f;
     } else {
-        return 10.f + 320.f + captionSize.height + nameSize.height + 10.f;
+        return 10.f + 320.f + captionSize.height + titleHeight + 10.f;
     }
 }
 
@@ -132,7 +139,13 @@
         CGSize titleSize = [titleText sizeWithFont:font constrainedToSize:CGSizeMake(300.f, 240.f) lineBreakMode:UILineBreakModeWordWrap];
         titleViewFrame.origin = CGPointMake(36.f, 10.f);
         titleViewFrame.size = titleSize;
-        captionViewFrame.origin = CGPointMake(10.f, 10.f + titleSize.height);
+        float titleHeight;
+        if (titleSize.height > 36.f) {
+            titleHeight = titleSize.height;
+        } else {
+            titleHeight = 36.f;
+        }
+        captionViewFrame.origin = CGPointMake(10.f, 10.f + titleHeight);
         captionViewFrame.size = captionSize;
     } else {
         iconViewFrame = CGRectMake(0.f, 0.f, 0.f, 0.f);
