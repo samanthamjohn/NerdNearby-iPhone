@@ -47,6 +47,7 @@
 		47C0436313B6AEBC00F71554 /* UIColor+NerdNearby.m in Sources */ = {isa = PBXBuildFile; fileRef = 47C0436113B6AEBC00F71554 /* UIColor+NerdNearby.m */; };
 		47CB2A2D13E232D90011BC81 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47CB2A2C13E232D90011BC81 /* CoreLocation.framework */; };
 		47CB2A2E13E232F50011BC81 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47CB2A2C13E232D90011BC81 /* CoreLocation.framework */; };
+		47F0B41514048D6100575B86 /* foursquarefavicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F0B41414048D6100575B86 /* foursquarefavicon.png */; };
 		D4097E8913B7D79E0094ECC8 /* NerdAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = D4097E8813B7D79E0094ECC8 /* NerdAgent.m */; };
 		D4097E8A13B7D79E0094ECC8 /* NerdAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = D4097E8813B7D79E0094ECC8 /* NerdAgent.m */; };
 		D4097E8D13B7D8200094ECC8 /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = D4097E8C13B7D8200094ECC8 /* App.m */; };
@@ -103,6 +104,7 @@
 		47C0436013B6AEBC00F71554 /* UIColor+NerdNearby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+NerdNearby.h"; sourceTree = "<group>"; };
 		47C0436113B6AEBC00F71554 /* UIColor+NerdNearby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+NerdNearby.m"; sourceTree = "<group>"; };
 		47CB2A2C13E232D90011BC81 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		47F0B41414048D6100575B86 /* foursquarefavicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foursquarefavicon.png; sourceTree = "<group>"; };
 		D4097E8713B7D79E0094ECC8 /* NerdAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NerdAgent.h; sourceTree = "<group>"; };
 		D4097E8813B7D79E0094ECC8 /* NerdAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NerdAgent.m; sourceTree = "<group>"; };
 		D4097E8B13B7D8200094ECC8 /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 		472F1AB513B698150097246F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				47F0B41414048D6100575B86 /* foursquarefavicon.png */,
 				472F1AB613B698150097246F /* NerdNearby-Info.plist */,
 				472F1AB713B698150097246F /* InfoPlist.strings */,
 				472F1ABA13B698150097246F /* NerdNearby-Prefix.pch */,
@@ -390,6 +393,7 @@
 				472F1AC213B698150097246F /* MainWindow.xib in Resources */,
 				4791F1C413CD210200F268DE /* LICENSE in Resources */,
 				4791F1C613CD210200F268DE /* README.md in Resources */,
+				47F0B41514048D6100575B86 /* foursquarefavicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

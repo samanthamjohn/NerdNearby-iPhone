@@ -71,6 +71,7 @@
     cell.layer.shouldRasterize = YES;
     cell.layer.rasterizationScale = [UIScreen mainScreen].scale;
     UIImageView *imageView;
+    UIImageView *iconView;
     UILabel *captionView;
     UILabel *titleView;
 
@@ -80,6 +81,10 @@
         imageView = [[[UIImageView alloc] init] autorelease];
         imageView.tag = kImageViewTag;
         [cell.contentView addSubview:imageView];
+        
+        iconView = [[[UIImageView alloc] init] autorelease];
+        iconView.tag = kIconViewTag;
+        [cell.contentView addSubview:iconView];
 
         titleView = [[[UILabel alloc] init] autorelease];
         titleView.tag = kTitleViewTag;
@@ -96,6 +101,7 @@
         captionView.font = [UIFont fontWithName:@"Helvetica" size:18.f];
         [cell.contentView addSubview:captionView];
     } else {
+        iconView = (UIImageView *)[cell.contentView viewWithTag:kIconViewTag];
         imageView = (UIImageView *)[cell.contentView viewWithTag:kImageViewTag];
         captionView = (UILabel *)[cell.contentView viewWithTag:kCaptionViewTag];
         titleView = (UILabel *)[cell.contentView viewWithTag:kTitleViewTag];
@@ -104,6 +110,7 @@
     CGRect imageViewFrame;
     CGRect captionViewFrame;
     CGRect titleViewFrame;
+    CGRect iconViewFrame;
 
     NSString *captionText = [item objectForKey:@"text"];
     UIFont *font = [UIFont fontWithName:@"Helvetica" size:18.f];
@@ -112,6 +119,7 @@
     NSString *titleText = @"";
 
     if ([feedItemType isEqualToString:@"tweet"]) {
+        iconViewFrame = CGRectMake(0.f, 0.f, 0.f, 0.f);
         imageViewFrame = CGRectMake(10.f, 0.f, 48.f, 48.f);
         captionViewFrame.origin = CGPointMake(10.f, 48.f + 12.f);
         captionViewFrame.size = captionSize;
@@ -119,6 +127,7 @@
         titleText = [item objectForKey:@"user"];
     } else if ([feedItemType isEqualToString:@"foursquare"]) {
         imageViewFrame = CGRectMake(0.f, 0.f, 0.f, 0.f);
+        iconViewFrame = CGRectMake(0.f, 10.f, 26.f, 26.f);
         titleText = [item objectForKey:@"name"];
         CGSize titleSize = [titleText sizeWithFont:font constrainedToSize:CGSizeMake(300.f, 240.f) lineBreakMode:UILineBreakModeWordWrap];
         titleViewFrame.origin = CGPointMake(36.f, 10.f);
@@ -126,6 +135,7 @@
         captionViewFrame.origin = CGPointMake(10.f, 10.f + titleSize.height);
         captionViewFrame.size = captionSize;
     } else {
+        iconViewFrame = CGRectMake(0.f, 0.f, 0.f, 0.f);
         titleText = [item objectForKey:@"name"];
         CGSize titleSize = [titleText sizeWithFont:font constrainedToSize:CGSizeMake(300.f, 240.f) lineBreakMode:UILineBreakModeWordWrap];
         titleViewFrame.origin = CGPointMake(10.f, 10.f);
@@ -135,10 +145,16 @@
         captionViewFrame.size = captionSize;
     }
 
+    iconView.frame = iconViewFrame;
     imageView.frame = imageViewFrame;
     captionView.frame = captionViewFrame;
     titleView.frame = titleViewFrame;
     NSURL *imageURL = [NSURL URLWithString:[item objectForKey:@"image_tag"]];
+    if ([feedItemType isEqualToString:@"foursquare"]) {
+        [iconView setImage:[UIImage imageNamed:@"foursquarefavicon.png"]];        
+    } else {
+        [iconView setImageWithURL:[NSURL URLWithString:@""] placeholderImage:nil];
+    }
     [imageView setImageWithURL:imageURL placeholderImage:nil];
     [captionView setText:captionText];
     [titleView setText:titleText];

@@ -3,6 +3,7 @@
 
 enum CellViewTag {
     kImageViewTag = 2047,
+    kIconViewTag = 2048,
     kCaptionViewTag,
     kTitleViewTag
     };
