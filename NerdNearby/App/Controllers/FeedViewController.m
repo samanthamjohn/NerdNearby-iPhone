@@ -62,8 +62,10 @@
         return 10.f + 48.f + captionSize.height + 10.f;
     } else if ([[item objectForKey:@"feed_item_type"] isEqualToString:@"foursquare"]) {
         return 10.f + captionSize.height + titleHeight + 10.f;
-    } else {
-        return 10.f + 320.f + captionSize.height + titleHeight + 10.f;
+    } else if ([[item objectForKey:@"feed_item_type"] isEqualToString:@"instagram"] || [[item objectForKey:@"feed_item_type"] isEqualToString:@"flickr"]) {
+        return 10.f + 320.f + captionSize.height + titleHeight + 10.f;        
+    }else {
+        return 10.f + 320.f + captionSize.height + nameSize.height + 10.f;
     }
 }
 
@@ -148,13 +150,21 @@
         captionViewFrame.origin = CGPointMake(10.f, 10.f + titleHeight);
         captionViewFrame.size = captionSize;
     } else {
-        iconViewFrame = CGRectMake(0.f, 0.f, 0.f, 0.f);
+        float titleOrigin;
+        if ([feedItemType isEqualToString:@"instagram"] || [feedItemType isEqualToString:@"flickr"]) {
+            titleOrigin = 36.f;
+            iconViewFrame = CGRectMake(0.f, 10.f, 26.f, 26.f);
+            titleViewFrame.origin = CGPointMake(titleOrigin, 10.f);
+        }else {
+            titleOrigin = 10.f;
+            iconViewFrame = CGRectMake(0.f, 0.f, 0.f, 0.f);            
+            titleViewFrame.origin = CGPointMake(titleOrigin, 10.f);
+        }
         titleText = [item objectForKey:@"name"];
         CGSize titleSize = [titleText sizeWithFont:font constrainedToSize:CGSizeMake(300.f, 240.f) lineBreakMode:UILineBreakModeWordWrap];
-        titleViewFrame.origin = CGPointMake(10.f, 10.f);
         titleViewFrame.size = titleSize;
-        imageViewFrame = CGRectMake(0.f, titleSize.height + 10.f, 320.f, 320.f);
-        captionViewFrame.origin = CGPointMake(10.f, titleSize.height + 10.f + 320.f);
+        imageViewFrame = CGRectMake(0.f, titleOrigin + 10.f, 320.f, 320.f);
+        captionViewFrame.origin = CGPointMake(10.f, titleOrigin + 10.f + 320.f);
         captionViewFrame.size = captionSize;
     }
 
@@ -165,7 +175,11 @@
     NSURL *imageURL = [NSURL URLWithString:[item objectForKey:@"image_tag"]];
     if ([feedItemType isEqualToString:@"foursquare"]) {
         [iconView setImage:[UIImage imageNamed:@"foursquarefavicon.png"]];        
-    } else {
+    } else if ([feedItemType isEqualToString:@"instagram"]) {
+        [iconView setImage:[UIImage imageNamed:@"instagramfavicon.png"]];                
+    } else if ([feedItemType isEqualToString:@"flickr"]) {
+        [iconView setImage:[UIImage imageNamed:@"flickrfavicon.png"]];
+    }else {
         [iconView setImageWithURL:[NSURL URLWithString:@""] placeholderImage:nil];
     }
     [imageView setImageWithURL:imageURL placeholderImage:nil];

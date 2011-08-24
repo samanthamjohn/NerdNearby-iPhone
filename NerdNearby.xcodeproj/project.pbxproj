@@ -48,6 +48,9 @@
 		47CB2A2D13E232D90011BC81 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47CB2A2C13E232D90011BC81 /* CoreLocation.framework */; };
 		47CB2A2E13E232F50011BC81 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47CB2A2C13E232D90011BC81 /* CoreLocation.framework */; };
 		47F0B41514048D6100575B86 /* foursquarefavicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F0B41414048D6100575B86 /* foursquarefavicon.png */; };
+		47F0B42E1405BB9200575B86 /* instagramfavicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F0B42D1405BB9200575B86 /* instagramfavicon.png */; };
+		47F0B4301405BEDA00575B86 /* flickrfavicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F0B42F1405BEDA00575B86 /* flickrfavicon.png */; };
+		47F0B4321405BEE100575B86 /* twitterfavicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F0B4311405BEE100575B86 /* twitterfavicon.png */; };
 		D4097E8913B7D79E0094ECC8 /* NerdAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = D4097E8813B7D79E0094ECC8 /* NerdAgent.m */; };
 		D4097E8A13B7D79E0094ECC8 /* NerdAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = D4097E8813B7D79E0094ECC8 /* NerdAgent.m */; };
 		D4097E8D13B7D8200094ECC8 /* App.m in Sources */ = {isa = PBXBuildFile; fileRef = D4097E8C13B7D8200094ECC8 /* App.m */; };
@@ -105,6 +108,9 @@
 		47C0436113B6AEBC00F71554 /* UIColor+NerdNearby.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+NerdNearby.m"; sourceTree = "<group>"; };
 		47CB2A2C13E232D90011BC81 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		47F0B41414048D6100575B86 /* foursquarefavicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foursquarefavicon.png; sourceTree = "<group>"; };
+		47F0B42D1405BB9200575B86 /* instagramfavicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instagramfavicon.png; sourceTree = "<group>"; };
+		47F0B42F1405BEDA00575B86 /* flickrfavicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flickrfavicon.png; sourceTree = "<group>"; };
+		47F0B4311405BEE100575B86 /* twitterfavicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitterfavicon.png; sourceTree = "<group>"; };
 		D4097E8713B7D79E0094ECC8 /* NerdAgent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NerdAgent.h; sourceTree = "<group>"; };
 		D4097E8813B7D79E0094ECC8 /* NerdAgent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NerdAgent.m; sourceTree = "<group>"; };
 		D4097E8B13B7D8200094ECC8 /* App.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = App.h; sourceTree = "<group>"; };
@@ -226,7 +232,10 @@
 			children = (
 				47F0B41414048D6100575B86 /* foursquarefavicon.png */,
 				472F1AB613B698150097246F /* NerdNearby-Info.plist */,
+				47F0B42D1405BB9200575B86 /* instagramfavicon.png */,
+				47F0B42F1405BEDA00575B86 /* flickrfavicon.png */,
 				472F1AB713B698150097246F /* InfoPlist.strings */,
+				47F0B4311405BEE100575B86 /* twitterfavicon.png */,
 				472F1ABA13B698150097246F /* NerdNearby-Prefix.pch */,
 				472F1ABB13B698150097246F /* main.m */,
 			);
@@ -394,6 +403,9 @@
 				4791F1C413CD210200F268DE /* LICENSE in Resources */,
 				4791F1C613CD210200F268DE /* README.md in Resources */,
 				47F0B41514048D6100575B86 /* foursquarefavicon.png in Resources */,
+				47F0B42E1405BB9200575B86 /* instagramfavicon.png in Resources */,
+				47F0B4301405BEDA00575B86 /* flickrfavicon.png in Resources */,
+				47F0B4321405BEE100575B86 /* twitterfavicon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
