@@ -42,13 +42,21 @@
     NSInteger index = [indexPath row];
     NerdAgent *agent = [[App sharedInstance] nerdAgent];
     NSDictionary *item = [[agent JSONArray] objectAtIndex:index];
+    
+    NSString *captionText = [item objectForKey:@"text"];
+    NSString *nameText = [item objectForKey:@"name"];
+    
+    UIFont *font = [UIFont fontWithName:@"Helvetica" size:18.f];
+    
+    CGSize captionSize = [captionText sizeWithFont:font constrainedToSize:CGSizeMake(300.f, 240.f) lineBreakMode:UILineBreakModeWordWrap];
+    CGSize nameSize = [nameText sizeWithFont:font constrainedToSize:CGSizeMake(300.f, 240.f) lineBreakMode:UILineBreakModeWordWrap];
+    
     if ([[item objectForKey:@"feed_item_type"] isEqualToString:@"tweet"]) {
-        NSString *captionText = [item objectForKey:@"text"];
-        UIFont *font = [UIFont fontWithName:@"Helvetica" size:18.f];
-        CGSize captionSize = [captionText sizeWithFont:font constrainedToSize:CGSizeMake(300.f, 240.f) lineBreakMode:UILineBreakModeWordWrap];
-        return 48.f + 48.f + captionSize.height;
+        return 10.f + 48.f + captionSize.height + 10.f;
+    } else if ([[item objectForKey:@"feed_item_type"] isEqualToString:@"foursquare"]) {
+        return 10.f + captionSize.height + 26.f + 10.f;
     } else {
-        return 320.f + 30.f;
+        return 10.f + 320.f + captionSize.height + nameSize.height + 10.f;
     }
 }
 
@@ -59,12 +67,6 @@
     NerdAgent *agent = [[App sharedInstance] nerdAgent];
     NSDictionary *item = [[agent JSONArray] objectAtIndex:index];
     NSString *cellIdentifier = @"NerdCellIdentifier";
-    BOOL tweet = NO;
-
-    if ([[item objectForKey:@"feed_item_type"] isEqualToString:@"tweet"]) {
-        tweet = YES;
-    }
-
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     cell.layer.shouldRasterize = YES;
     cell.layer.rasterizationScale = [UIScreen mainScreen].scale;
@@ -81,6 +83,10 @@
 
         titleView = [[[UILabel alloc] init] autorelease];
         titleView.tag = kTitleViewTag;
+        titleView.lineBreakMode = UILineBreakModeWordWrap;
+        titleView.numberOfLines = 0;
+        titleView.font = [UIFont fontWithName:@"Helvetica" size:18.f];
+
         [cell.contentView addSubview:titleView];
 
         captionView = [[[UILabel alloc] init] autorelease];
@@ -102,26 +108,40 @@
     NSString *captionText = [item objectForKey:@"text"];
     UIFont *font = [UIFont fontWithName:@"Helvetica" size:18.f];
     CGSize captionSize = [captionText sizeWithFont:font constrainedToSize:CGSizeMake(300.f, 240.f) lineBreakMode:UILineBreakModeWordWrap];
+    NSString *feedItemType = [item objectForKey:@"feed_item_type"];
+    NSString *titleText = @"";
 
-    if (tweet) {
+    if ([feedItemType isEqualToString:@"tweet"]) {
         imageViewFrame = CGRectMake(10.f, 0.f, 48.f, 48.f);
         captionViewFrame.origin = CGPointMake(10.f, 48.f + 12.f);
         captionViewFrame.size = captionSize;
         titleViewFrame = CGRectMake(48.f + 10.f + 10.f, 0.f, 320.f - 40.f - 10.f - 10.f - 10.f, 48.f);
+        titleText = [item objectForKey:@"user"];
+    } else if ([feedItemType isEqualToString:@"foursquare"]) {
+        imageViewFrame = CGRectMake(0.f, 0.f, 0.f, 0.f);
+        titleText = [item objectForKey:@"name"];
+        CGSize titleSize = [titleText sizeWithFont:font constrainedToSize:CGSizeMake(300.f, 240.f) lineBreakMode:UILineBreakModeWordWrap];
+        titleViewFrame.origin = CGPointMake(36.f, 10.f);
+        titleViewFrame.size = titleSize;
+        captionViewFrame.origin = CGPointMake(10.f, 10.f + titleSize.height);
+        captionViewFrame.size = captionSize;
     } else {
-        imageViewFrame = CGRectMake(0.f, 20.f, 320.f, 320.f);
-        captionViewFrame = CGRectMake(10.f, 0.f, 320.f - (10.f * 2.f), 20.f);
-        titleViewFrame = CGRectMake(0.f, 0.f, 0.f, 0.f);
+        titleText = [item objectForKey:@"name"];
+        CGSize titleSize = [titleText sizeWithFont:font constrainedToSize:CGSizeMake(300.f, 240.f) lineBreakMode:UILineBreakModeWordWrap];
+        titleViewFrame.origin = CGPointMake(10.f, 10.f);
+        titleViewFrame.size = titleSize;
+        imageViewFrame = CGRectMake(0.f, titleSize.height + 10.f, 320.f, 320.f);
+        captionViewFrame.origin = CGPointMake(10.f, titleSize.height + 10.f + 320.f);
+        captionViewFrame.size = captionSize;
     }
 
     imageView.frame = imageViewFrame;
     captionView.frame = captionViewFrame;
     titleView.frame = titleViewFrame;
-
     NSURL *imageURL = [NSURL URLWithString:[item objectForKey:@"image_tag"]];
     [imageView setImageWithURL:imageURL placeholderImage:nil];
     [captionView setText:captionText];
-    [titleView setText:[item objectForKey:@"user"]];
+    [titleView setText:titleText];
 
     return cell;
 }
